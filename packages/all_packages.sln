@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AMD", "AMD\AMD.vcproj", "{7021AF50-913A-4195-BC1E-6B04E3EA326A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UMFPACK", "UMFPACK\UMFPACK.vcproj", "{6AE9389F-3D97-413D-9449-13EABC6A2D27}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A} = {7021AF50-913A-4195-BC1E-6B04E3EA326A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libf2c", "libf2c\libf2c.vcproj", "{2A338F34-FA2F-4D65-8037-E92E25A4C222}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "METIS", "metis\METIS.vcproj", "{0654FCBF-1D72-4A51-B818-29D59577CE64}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "taucs_win32", "taucs\taucs_win32.vcproj", "{BF7D3D10-D19D-44EF-B230-486168201B61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0654FCBF-1D72-4A51-B818-29D59577CE64} = {0654FCBF-1D72-4A51-B818-29D59577CE64}
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222} = {2A338F34-FA2F-4D65-8037-E92E25A4C222}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_MD|Win32 = Release_MD|Win32
+		Release_MT|Win32 = Release_MT|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Debug|Win32.Build.0 = Debug|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Debug|Win32.Build.0 = Debug|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{6AE9389F-3D97-413D-9449-13EABC6A2D27}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Debug|Win32.Build.0 = Debug|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{2A338F34-FA2F-4D65-8037-E92E25A4C222}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Debug|Win32.Build.0 = Debug|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MT|Win32.Build.0 = Release_MT|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Debug|Win32.Build.0 = Debug|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Release_MD|Win32.ActiveCfg = Release|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Release_MD|Win32.Build.0 = Release|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Release_MT|Win32.ActiveCfg = Release|Win32
+		{BF7D3D10-D19D-44EF-B230-486168201B61}.Release_MT|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

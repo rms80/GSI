@@ -1,0 +1,145 @@
+No preset method. Using custom settings
+PRIMME will allocate the following memory:
+real workspace, 184008 bytes
+int  workspace, 408 bytes
+ Matrix: HA.mtx
+// ---------------------------------------------------
+//                 primme configuration               
+// ---------------------------------------------------
+primme.n = 245 
+primme.nLocal = 245 
+primme.numProcs = 1 
+primme.procID = 0 
+
+// Output and reporting
+primme.printLevel = 2 
+
+// Solver parameters
+primme.numEvals = 40 
+primme.aNorm = 0.000000e+00 
+primme.eps = 1.000000e-14 
+primme.maxBasisSize = 20 
+primme.minRestartSize = 10 
+primme.maxBlockSize = 1
+primme.maxOuterIterations = 10000
+primme.maxMatvecs = 300000
+primme.target = primme_smallest
+primme.numTargetShifts = 0
+primme.dynamicMethodSwitch = 0
+primme.locking = 1
+primme.initSize = 0
+primme.numOrthoConst = 0
+primme.iseed = 3 5 101 4027
+
+// Restarting
+primme.restarting.scheme = primme_thick
+primme.restarting.maxPrevRetain = 1
+
+// Correction parameters
+primme.correction.precondition = 1
+primme.correction.robustShifts = 1
+primme.correction.maxInnerIterations = 0
+primme.correction.relTolBase = 1.5
+primme.correction.convTest = primme_adaptive_ETolerance
+
+// projectors for JD cor.eq.
+primme.correction.projectors.LeftQ = 1
+primme.correction.projectors.LeftX = 1
+primme.correction.projectors.RightQ = 0
+primme.correction.projectors.SkewQ = 0
+primme.correction.projectors.RightX = 0
+primme.correction.projectors.SkewX = 0
+// ---------------------------------------------------
+Lock epair[ 1 ]= -6.675665e-01 norm 2.5107e-14 Mvecs 38 Time 4.8926e-02 Flag 2
+Lock epair[ 2 ]= -6.546619e-01 norm 2.1573e-14 Mvecs 56 Time 7.2495e-02 Flag 2
+Lock epair[ 3 ]= -3.237855e-01 norm 1.1915e-14 Mvecs 74 Time 9.6073e-02 Flag 2
+Lock epair[ 4 ]= -2.333696e-01 norm 2.5691e-14 Mvecs 119 Time 1.5427e-01 Flag 2
+Lock epair[ 5 ]= -2.333696e-01 norm 2.9984e-14 Mvecs 119 Time 1.5456e-01 Flag 2
+Lock epair[ 6 ]= -2.203067e-01 norm 1.2278e-14 Mvecs 155 Time 2.0292e-01 Flag 2
+Lock epair[ 7 ]= -2.203067e-01 norm 1.8936e-14 Mvecs 164 Time 2.1512e-01 Flag 2
+Lock epair[ 8 ]= -2.197247e-01 norm 9.9731e-15 Mvecs 182 Time 2.3945e-01 Flag 2
+Lock epair[ 9 ]= -1.456380e-01 norm 9.2377e-15 Mvecs 200 Time 2.6409e-01 Flag 2
+Lock epair[ 10 ]= -7.807192e-02 norm 1.6538e-14 Mvecs 227 Time 3.0045e-01 Flag 2
+Lock epair[ 11 ]= 3.918123e-02 norm 1.5227e-14 Mvecs 281 Time 3.7284e-01 Flag 2
+Lock epair[ 12 ]= 3.918123e-02 norm 3.2139e-14 Mvecs 281 Time 3.7313e-01 Flag 2
+Lock epair[ 13 ]= 4.069478e-02 norm 2.8403e-14 Mvecs 308 Time 4.0998e-01 Flag 2
+Lock epair[ 14 ]= 7.361044e-02 norm 2.2009e-14 Mvecs 353 Time 4.7046e-01 Flag 2
+Lock epair[ 15 ]= 7.361044e-02 norm 1.2207e-14 Mvecs 362 Time 4.8318e-01 Flag 2
+Lock epair[ 16 ]= 9.013534e-02 norm 2.9625e-14 Mvecs 380 Time 5.0838e-01 Flag 2
+Lock epair[ 17 ]= 1.189120e-01 norm 1.9196e-14 Mvecs 425 Time 5.6912e-01 Flag 2
+Lock epair[ 18 ]= 1.189120e-01 norm 1.5228e-14 Mvecs 434 Time 5.8183e-01 Flag 2
+Lock epair[ 19 ]= 1.703620e-01 norm 1.8487e-14 Mvecs 461 Time 6.1866e-01 Flag 2
+Lock epair[ 20 ]= 1.933819e-01 norm 2.4396e-14 Mvecs 506 Time 6.8074e-01 Flag 2
+Lock epair[ 21 ]= 1.933819e-01 norm 1.2288e-14 Mvecs 506 Time 6.8104e-01 Flag 2
+Lock epair[ 22 ]= 2.211836e-01 norm 2.7647e-14 Mvecs 533 Time 7.1797e-01 Flag 2
+Lock epair[ 23 ]= 2.303037e-01 norm 2.2877e-14 Mvecs 551 Time 7.4301e-01 Flag 2
+Lock epair[ 24 ]= 3.040638e-01 norm 2.1734e-14 Mvecs 578 Time 7.8052e-01 Flag 2
+Lock epair[ 25 ]= 3.324696e-01 norm 2.0337e-14 Mvecs 623 Time 8.4238e-01 Flag 2
+Lock epair[ 26 ]= 3.324696e-01 norm 2.4028e-14 Mvecs 632 Time 8.5539e-01 Flag 2
+Lock epair[ 27 ]= 3.637156e-01 norm 1.5014e-14 Mvecs 659 Time 8.9327e-01 Flag 2
+Lock epair[ 28 ]= 3.715701e-01 norm 2.4141e-14 Mvecs 695 Time 9.4341e-01 Flag 2
+Lock epair[ 29 ]= 3.715701e-01 norm 1.6420e-14 Mvecs 704 Time 9.5686e-01 Flag 2
+Lock epair[ 30 ]= 4.336374e-01 norm 1.6841e-14 Mvecs 749 Time 1.0203e+00 Flag 2
+Lock epair[ 31 ]= 4.336374e-01 norm 2.9886e-14 Mvecs 749 Time 1.0206e+00 Flag 2
+Lock epair[ 32 ]= 4.810599e-01 norm 1.4860e-14 Mvecs 803 Time 1.0961e+00 Flag 2
+Lock epair[ 33 ]= 4.810599e-01 norm 1.7486e-14 Mvecs 812 Time 1.1093e+00 Flag 2
+Lock epair[ 34 ]= 5.227980e-01 norm 2.4860e-14 Mvecs 839 Time 1.1474e+00 Flag 2
+Lock epair[ 35 ]= 5.539408e-01 norm 2.5614e-14 Mvecs 866 Time 1.1869e+00 Flag 2
+Lock epair[ 36 ]= 5.859480e-01 norm 3.1143e-14 Mvecs 893 Time 1.2260e+00 Flag 2
+Lock epair[ 37 ]= 6.210304e-01 norm 3.0621e-14 Mvecs 929 Time 1.2779e+00 Flag 2
+Lock epair[ 38 ]= 7.077528e-01 norm 2.3004e-14 Mvecs 1001 Time 1.3815e+00 Flag 2
+Lock epair[ 39 ]= 7.077528e-01 norm 3.0413e-14 Mvecs 1001 Time 1.3818e+00 Flag 2
+Lock epair[ 40 ]= 7.102808e-01 norm 2.4738e-14 Mvecs 1064 Time 1.4716e+00 Flag 2
+Wallclock Runtime   : 1.471930
+User Time           : 1.209070 seconds
+Syst Time           : 0.257887 seconds
+Eval[1]: -6.675665068136606E-01 rnorm: 2.510668355108440E-14 
+Eval[2]: -6.546618604458109E-01 rnorm: 2.157312985041949E-14 
+Eval[3]: -3.237854886806363E-01 rnorm: 1.191460031031481E-14 
+Eval[4]: -2.333695635851680E-01 rnorm: 2.569067278802444E-14 
+Eval[5]: -2.333695635850695E-01 rnorm: 2.998357373376336E-14 
+Eval[6]: -2.203067022258198E-01 rnorm: 1.227786400446271E-14 
+Eval[7]: -2.203067022256361E-01 rnorm: 1.893554606570498E-14 
+Eval[8]: -2.197246541080927E-01 rnorm: 9.973051102800209E-15 
+Eval[9]: -1.456380434243200E-01 rnorm: 9.237715751986948E-15 
+Eval[10]: -7.807191639718314E-02 rnorm: 1.653804069844159E-14 
+Eval[11]: 3.918123296512206E-02  rnorm: 1.522663720123518E-14 
+Eval[12]: 3.918123296630480E-02  rnorm: 3.213917483777189E-14 
+Eval[13]: 4.069478367874781E-02  rnorm: 2.840290707880624E-14 
+Eval[14]: 7.361043610486068E-02  rnorm: 2.200874610860534E-14 
+Eval[15]: 7.361043610623472E-02  rnorm: 1.220650994712440E-14 
+Eval[16]: 9.013533568844483E-02  rnorm: 2.962519961342281E-14 
+Eval[17]: 1.189120223617586E-01  rnorm: 1.919643274471398E-14 
+Eval[18]: 1.189120223625252E-01  rnorm: 1.522791290696999E-14 
+Eval[19]: 1.703619627631629E-01  rnorm: 1.848716178641601E-14 
+Eval[20]: 1.933819283136603E-01  rnorm: 2.439611696405595E-14 
+Eval[21]: 1.933819283147196E-01  rnorm: 1.228791408936780E-14 
+Eval[22]: 2.211835868462692E-01  rnorm: 2.764662009370127E-14 
+Eval[23]: 2.303036821325204E-01  rnorm: 2.287672437396039E-14 
+Eval[24]: 3.040637876460361E-01  rnorm: 2.173369717581661E-14 
+Eval[25]: 3.324695690255229E-01  rnorm: 2.033744386339662E-14 
+Eval[26]: 3.324695690262142E-01  rnorm: 2.402832566787791E-14 
+Eval[27]: 3.637155733494397E-01  rnorm: 1.501377083482537E-14 
+Eval[28]: 3.715701233421786E-01  rnorm: 2.414131764719912E-14 
+Eval[29]: 3.715701233428962E-01  rnorm: 1.641970390845793E-14 
+Eval[30]: 4.336374328666378E-01  rnorm: 1.684087441328358E-14 
+Eval[31]: 4.336374328679102E-01  rnorm: 2.988556046220432E-14 
+Eval[32]: 4.810598625155991E-01  rnorm: 1.485978916724708E-14 
+Eval[33]: 4.810598625169933E-01  rnorm: 1.748552647265909E-14 
+Eval[34]: 5.227979743532714E-01  rnorm: 2.486010730354680E-14 
+Eval[35]: 5.539408033746059E-01  rnorm: 2.561442192829944E-14 
+Eval[36]: 5.859480074131352E-01  rnorm: 3.114285259829038E-14 
+Eval[37]: 6.210303551850632E-01  rnorm: 3.062093079031740E-14 
+Eval[38]: 7.077527880161810E-01  rnorm: 2.300437610320731E-14 
+Eval[39]: 7.077527880199378E-01  rnorm: 3.041339553768341E-14 
+Eval[40]: 7.102807874843242E-01  rnorm: 2.473778448984520E-14 
+ 40 eigenpairs converged
+Tolerance : 3.297678214124644E-14 
+Iterations: 1055
+Restarts  : 118
+Matvecs   : 1064
+Preconds  : 1054
+
+
+#,1064,1.5
+

@@ -1,0 +1,2 @@
+- make.inc.gfortran is for gfortran-4  (fortran 95)
+   - 

@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PRIMME", "PRIMME.vcproj", "{AE36B0CC-0F71-4C63-B16E-F0C2EEE4EC71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ATLAS_CLAPACK|Win32 = ATLAS_CLAPACK|Win32
+		STANDARD_LAPACK|Win32 = STANDARD_LAPACK|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE36B0CC-0F71-4C63-B16E-F0C2EEE4EC71}.ATLAS_CLAPACK|Win32.ActiveCfg = ATLAS_CLAPACK|Win32
+		{AE36B0CC-0F71-4C63-B16E-F0C2EEE4EC71}.ATLAS_CLAPACK|Win32.Build.0 = ATLAS_CLAPACK|Win32
+		{AE36B0CC-0F71-4C63-B16E-F0C2EEE4EC71}.STANDARD_LAPACK|Win32.ActiveCfg = STANDARD_LAPACK|Win32
+		{AE36B0CC-0F71-4C63-B16E-F0C2EEE4EC71}.STANDARD_LAPACK|Win32.Build.0 = STANDARD_LAPACK|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

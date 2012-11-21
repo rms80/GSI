@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "METIS", "METIS.vcproj", "{0654FCBF-1D72-4A51-B818-29D59577CE64}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_MD|Win32 = Release_MD|Win32
+		Release_MT|Win32 = Release_MT|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Debug|Win32.Build.0 = Debug|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{0654FCBF-1D72-4A51-B818-29D59577CE64}.Release_MT|Win32.Build.0 = Release_MT|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

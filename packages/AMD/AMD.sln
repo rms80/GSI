@@ -1,0 +1,26 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AMD", "AMD.vcproj", "{7021AF50-913A-4195-BC1E-6B04E3EA326A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_MD|Win32 = Release_MD|Win32
+		Release_MT|Win32 = Release_MT|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Debug|Win32.Build.0 = Debug|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MD|Win32.ActiveCfg = Release_MD|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MD|Win32.Build.0 = Release_MD|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MT|Win32.ActiveCfg = Release_MT|Win32
+		{7021AF50-913A-4195-BC1E-6B04E3EA326A}.Release_MT|Win32.Build.0 = Release_MT|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

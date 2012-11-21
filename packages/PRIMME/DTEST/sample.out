@@ -1,0 +1,75 @@
+PRIMME will allocate the following memory:
+real workspace, 45584 bytes
+int  workspace, 228 bytes
+ Matrix: LUNDA.mtx
+// ---------------------------------------------------
+//                 primme configuration               
+// ---------------------------------------------------
+primme.n = 147 
+primme.nLocal = 147 
+primme.numProcs = 1 
+primme.procID = 0 
+
+// Output and reporting
+primme.printLevel = 1 
+
+// Solver parameters
+primme.numEvals = 10 
+primme.aNorm = 1.389726e+09 
+primme.eps = 1.000000e-12 
+primme.maxBasisSize = 15 
+primme.minRestartSize = 6 
+primme.maxBlockSize = 1
+primme.maxOuterIterations = 2147483647
+primme.maxMatvecs = 2147483647
+primme.target = primme_smallest
+primme.numTargetShifts = 0
+primme.dynamicMethodSwitch = 1
+primme.locking = 1
+primme.initSize = 0
+primme.numOrthoConst = 0
+primme.iseed = -1 0 -1881116380 -1879043736
+
+// Restarting
+primme.restarting.scheme = primme_thick
+primme.restarting.maxPrevRetain = 1
+
+// Correction parameters
+primme.correction.precondition = 1
+primme.correction.robustShifts = 0
+primme.correction.maxInnerIterations = -1
+primme.correction.relTolBase = 0
+primme.correction.convTest = primme_adaptive_ETolerance
+
+// projectors for JD cor.eq.
+primme.correction.projectors.LeftQ = 1
+primme.correction.projectors.LeftX = 1
+primme.correction.projectors.RightQ = 0
+primme.correction.projectors.SkewQ = 0
+primme.correction.projectors.RightX = 0
+primme.correction.projectors.SkewX = 1
+// ---------------------------------------------------
+Wallclock Runtime   : 0.053559
+User Time           : 0.048737 seconds
+Syst Time           : 0.001635 seconds
+Eval[1]: 8.003510931317381E+01  rnorm: 7.297430853284563E-04 
+Eval[2]: 1.976505466973977E+03  rnorm: 5.218325555919223E-04 
+Eval[3]: 1.996764780018836E+03  rnorm: 7.817092632462419E-04 
+Eval[4]: 6.354111204050741E+03  rnorm: 8.185544043708850E-04 
+Eval[5]: 1.283833069657942E+04  rnorm: 6.396690889514503E-04 
+Eval[6]: 1.318101551048634E+04  rnorm: 9.190645590960040E-04 
+Eval[7]: 2.232062915924292E+04  rnorm: 1.171533531926783E-03 
+Eval[8]: 2.262687393189096E+04  rnorm: 9.599473699699704E-04 
+Eval[9]: 4.343955423392394E+04  rnorm: 6.946809204898042E-04 
+Eval[10]: 4.531744945423735E+04  rnorm: 7.500073202978871E-04 
+ 10 eigenpairs converged
+Tolerance : 1.389725903094198E-03 
+Iterations: 185
+Restarts  : 23
+Matvecs   : 603
+Preconds  : 527
+
+
+#,603,0.1
+
+Recommended method for next run: DEFAULT_MIN_TIME

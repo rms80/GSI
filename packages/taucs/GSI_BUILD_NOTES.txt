@@ -1,0 +1,93 @@
+TAUCS has it's own windows build system, which is currently
+used in the GSI packages build system. The commands are
+
+1) configurator\configurator win32 in=win32_config.txt <variant>
+2) nmake
+
+configurator is a custom configuration program for TAUCS. The 
+file win32_config.txt contains pre-defined configuration settings.
+We can use variants, like "variant=_atlas", to make builds with
+different config settings.
+
+The compiler paths/flags/etc for different ostypes (win32 above)
+and variants are defined in \config\*.mk. These files are included
+by the generated makefiles, which will show up in the \build folder
+after running configurator.
+
+Now it gets messy. To build the different variants, we have .bat files:
+
+  maketaucs_win32.bat          : win32 /MT build, software BLAS/LAPACK
+  maketaucs_win32_atlas.bat    : win32 /MT build, ATLAS BLAS/LAPACK
+  maketaucs_win32_mkl.bat      : win32 /MT build, Intel MKL BLAS/LAPACK
+
+
+To build from Visual Studio, there is a solution (taucs.sln) and 
+per-variant .vcproj files. Each .vcproj just calls the relevant .bat 
+file, and then copies the lib and headers to packages\lib and 
+packages\include\<variant>. (The latter is necessary because the
+different variants may have different config settings)
+
+
+
+There are also these batch files, which are not currently used:
+  configure.bat              :  interactive configuration
+  configure_win32.bat        :  configures all variants, renames makefiles for each
+  make_win32_vs2005.bat      : make all variants
+  makeclean_win32_vs2005.bat : make clean all variants
+
+
+[QUESTIONS]
+
+
+Q) Why is there no /MD version of TAUCS?
+
+A) TAUCS links to win32 versions of BLAS and LAPACK, which currently are
+   compiled in a cygwin environment. To 'convert' them to .libs which
+   will work in a win32 environment, it is necessary to unpack the unix .a
+   static libraries and re-pack them as a win32 .lib. Unfortunately BLAS/LAPACK
+   also do a tiny bit of I/O (I think it's the 'xerbla' routine), so we have
+   to somehow get cygwin to link to io libraries that will work under win32.
+   MINGW provides such libraries. Unfortunately they do not provide /MD versions.
+   So, we can't make an /MD version of TAUCS unless we either (a) build
+   BLAS and LAPACK in a win32 environment (tricky because most of the code
+   is in Fortran) or (b) compile a /MD version of MINGW.
+   
+   Fortran-in-win32 is maybe easier to do (Intel provides one, and there are others). 
+   That would take care of the software BLAS. But it would really be preferable to 
+   use ATLAS BLAS, and porting the ATLAS config/build system to a win32 environment 
+   seems like a nightmare...
+
+
+
+Q) Why are there two versions of configurator.exe (configurator.exe 
+   and configurator_win32.exe)?
+
+A) TAUCS determines certain build settings (like whether BLAS calls
+   need an underscore) by trying to compile & link a test program, and
+   seeing if it fails or not. This doesn't fly with Visual Studio - it
+   won't run the post-build event if any errors occur. So configurator_win32.exe
+   is a hacked version that disables the tests that fail in windows.
+   If you need to change the hacks, search for "[GSI]" in 
+   configurator\taucs_structure.h, and comment/uncomment as necessary.
+   
+
+
+Q) Why not just make .sln files like the other packages?
+
+A) TAUCS has a 'unique' build system. It is a C library, but the author did
+   not want to have copies of the code for float/double/etc. So the type is
+   determined by preprocessor macro, and the makefiles build the same file
+   multiple times, with different flags. This breaks Visual Studio's model,
+   because you can't include a file twice. 
+  
+   It may be possible to set up per-type projects, each building the .obj's
+   for each type, and then a final project that links them together. This
+   seems like a lot of manual labour. But it would definitely make life easier.
+   
+
+
+[TODO]
+ - mkl build
+
+
+[ RMS May 30, 2009 ]

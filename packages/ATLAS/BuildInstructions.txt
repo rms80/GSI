@@ -1,0 +1,94 @@
+Brief, vague instructions for building ATLAS on windows and
+creating either a static library or DLL that can be used
+by Visual Studio. Note that you will have to do some work
+to apply these instructions (paths, versions, etc are all out
+of date and/or specific to my former machine)
+-Ryan Schmidt    (rms@unknownroad.com)
+
+
+[open cygwin]
+cd /cygdrive/c/cygwin
+emacs cygwin.bat
+
+[change contents to: ]
+
+@echo off
+set CYGWIN=tty
+chdir c:\Program Files\Microsoft Visual Studio 8\VC
+call vcvarsall
+C:
+chdir C:\cygwin\bin
+
+
+[re-start cygwin window]
+cd /cygdrive/c/projects/rmssolver/packages/ATLAS3.8.2/
+mkdir ATLAS_Core2Quad
+cd ATLAS_Core2Quad
+../configure --nof77 -b 32 -C ic cl -F ic '-O2 -nologo' -Si nocygwin 1 --prefix=/cygdrive/c/projects/rmssolver/packages/ATLAS3.8.2/
+
+
+-O2   optimize
+-MD   multi-threaded DLL (?)
+
+mkdir ATLAS_Core2Quad
+cd ATLAS_Core2Quad
+
+
+
+[Force SSE2]
+1) comment out SSE3 test in /CONFIG/src/Makefile
+2) replace -msse3 with -msse2 in Make.inc
+[PROBLEM] this forces the arch defaults test to fail...which is frustrating...
+
+
+use msvc as interface compiler:
+../configure -b 32 -C ic cl -Si nocygwin 1 
+
+../configure -t 0 -b 32 -Si nocygwin 1 
+
+
+
+
+use gcc4 to compile kernels ( doesn't seem to be any advantage ):
+append [   -Ss kern /usr/bin/gcc-4   ] to flags
+
+
+
+- use WindowsPostBuild.sh script in atlas lib directory to generate dll and static libs
+    - pass an argument to append suffix to filenames
+    - automatically copies libs and headers to packages/lib and packages/include
+
+
+
+
+arch defaults  (can set in Make.inc?):
+P432SSE2
+Core2Duo32SSE3
+(amd?)
+
+
+
+
+
+
+
+
+
+mingw stuff:
+  http://hcowan.wordpress.com/2006/06/09/mingw-starter-guide/
+
+1) install MINGW
+    - make sure to install mingw g77
+
+2) edit cygwin /etc/profile
+    - change PATH to:
+         PATH=/cygdrive/c/mingw/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:$PATH
+ 
+3) now mingw compilers will be used
+
+
+
+
+
+
+
