@@ -114,11 +114,19 @@ bool Solver_TAUCS::init_options()
 	// set convergence criteria
 	char buf[1024];
 	if ( m_nSolverMaxIterations != 0 ) {
+	#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#else
+		sprintf(buf, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#endif
 		m_vOptionStrings.push_back(buf);
 	}
 	if ( m_fSolverConvergeTolerance != 0 ) {
+	#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#else
+		sprintf(buf, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#endif
 		m_vOptionStrings.push_back(buf);
 	}
 

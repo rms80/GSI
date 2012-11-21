@@ -81,7 +81,7 @@ public:
 /*
  * i/o
  */
-	void Print(FILE * out) const;
+        void Print(FILE * out) const;
 
 protected:
 	unsigned int m_nRows;

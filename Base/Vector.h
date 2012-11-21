@@ -1,16 +1,21 @@
 #ifndef __GSI_VECTOR__
 #define __GSI_VECTOR__
 
+
+#include <cstdio>
+#include <vector>
 namespace gsi {
 
 /*
  * basic dense vector class
  */
 
+typedef unsigned long size_t;
+
 class Vector
 {
 public:
-	Vector(size_t nSize = 0);
+        Vector(size_t nSize = 0);
 	Vector(const Vector & copy);
 	~Vector(void);
 

@@ -19,8 +19,10 @@ extern "C" {
 #define L_fp void *
 #define ftnlen int
 #define VOID void
+
 #include <clapack_default.h>
-//#include <clapack.h>
+// #include <clapack.h>
+
 #undef integer
 #undef real
 #undef doublereal

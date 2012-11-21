@@ -9,9 +9,9 @@ using namespace gsi;
 
 
 struct ColumnEntry {
-	unsigned int r;
-	unsigned int c;
-	double value;
+        unsigned int r; // not mutable! used in operator<
+        mutable unsigned int c;
+        mutable double value;
 	ColumnEntry() { r = 0; c = 0; value = 0; }
 	ColumnEntry(unsigned int row, unsigned int col) { r = row; c = col; value = 0; }
 	ColumnEntry(unsigned int row, unsigned int col, double val) { r = row; c = col; value = val; }

@@ -1,4 +1,4 @@
-#include ".\architecture.h"
+#include "Architecture.h"
 
 using namespace rmssolver;
 

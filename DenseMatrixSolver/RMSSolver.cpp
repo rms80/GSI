@@ -1,6 +1,7 @@
 // TempDLL.cpp : Defines the entry point for the DLL application.
 //
 
+/*
 #include <windows.h>
 #include "Architecture.h"
 
@@ -17,4 +18,5 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 
     return TRUE;
 }
+*/
 

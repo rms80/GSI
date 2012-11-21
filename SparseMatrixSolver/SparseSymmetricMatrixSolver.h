@@ -4,7 +4,7 @@
 #include <vector>
 #include <set>
 #include <string>
-
+#include <cstdio>
 
 namespace gsi {
 
@@ -27,22 +27,45 @@ public:
 	unsigned int Rows() { return m_nRows; }
 	unsigned int Columns() { return m_nCols; }
 
-	inline void Set( unsigned int r, unsigned int c, double dValue );
-	inline double Get( unsigned int r, unsigned int c );
+	inline void Set( unsigned int r, unsigned int c, double dValue ){
+		r -= m_n1Offset; c -= m_n1Offset;
+	  m_vColumns[c].insert( Entry(r,dValue) );
+	}
+	
+	inline double Get( unsigned int r, unsigned int c ){
+		r -= m_n1Offset; c -= m_n1Offset;
+	Column::iterator found(m_vColumns[c].find(Entry(r)));
+	return (found == m_vColumns[c].end()) ? 0.0f : (*found).value;
+	}
 
 	void Clear(bool bFree = true);
 	void ClearRow( unsigned int r );
 
-	inline void SetRHS( unsigned int r, double dValue, unsigned int nRHS = 0 );
-	inline double GetRHS( unsigned int r, unsigned int nRHS = 0 );
+	inline void SetRHS( unsigned int r, double dValue, unsigned int nRHS = 0 ){
+		r -= m_n1Offset;
+	m_vRHS[nRHS][r] = dValue;
+	}
+	
+	inline double GetRHS( unsigned int r, unsigned int nRHS = 0 ){
+		r -= m_n1Offset;
+	  return m_vRHS[nRHS][r];
+	}
 
 	//! assumes dValue is at least length m_nRows (or m_nRows+1 for one-based indexing)
-	inline void SetRHSVec( double * dValue, unsigned int nRHS = 0 );
+	inline void SetRHSVec( double * dValue, unsigned int nRHS = 0 ){
+		for ( unsigned int i = 0; i < m_nRows; ++i )
+		m_vRHS[nRHS][i] = dValue[i + m_n1Offset];
+	}
 
-	inline double GetSolution( unsigned int r, unsigned int nRHS = 0 );
+	inline double GetSolution( unsigned int r, unsigned int nRHS = 0 ){
+		r -= m_n1Offset;
+	return m_vSolutions[nRHS][r];
+	}
 
 	//! note - this vector is always indexed from 0...
-	inline double * GetSolutionVec( unsigned int nRHS = 0 );
+	inline double * GetSolutionVec( unsigned int nRHS = 0 ){
+	return & m_vSolutions[nRHS][0];
+	}
 
 	/*
 	 * Sanity checks

@@ -1,4 +1,4 @@
-#include ".\SparseSymmetricMatrixSolver.h"
+#include "SparseSymmetricMatrixSolver.h"
 
 #include <math.h>
 
@@ -40,39 +40,43 @@ SparseSymmetricMatrixSolver::~SparseSymmetricMatrixSolver(void)
 
 
 
-
+/*
 void SparseSymmetricMatrixSolver::Set( unsigned int r, unsigned int c, double dValue )
 {
 	r -= m_n1Offset; c -= m_n1Offset;
 	m_vColumns[c].insert( Entry(r,dValue) );
 }
-
+*/
+/*
 double SparseSymmetricMatrixSolver::Get( unsigned int r, unsigned int c)
 {
 	r -= m_n1Offset; c -= m_n1Offset;
 	Column::iterator found(m_vColumns[c].find(Entry(r)));
 	return (found == m_vColumns[c].end()) ? 0.0f : (*found).value;
 }
-
+*/
+/*
 void SparseSymmetricMatrixSolver::SetRHS( unsigned int r, double dValue, unsigned int nRHS  )
 {
 	r -= m_n1Offset;
 	m_vRHS[nRHS][r] = dValue;
 }
-
+*/
+/*
 void SparseSymmetricMatrixSolver::SetRHSVec( double * dValue, unsigned int nRHS )
 {
 	for ( unsigned int i = 0; i < m_nRows; ++i )
 		m_vRHS[nRHS][i] = dValue[i + m_n1Offset];
 }
-
-
+*/
+/*
 double SparseSymmetricMatrixSolver::GetRHS( unsigned int r, unsigned int nRHS )
 {
 	r -= m_n1Offset;
 	return m_vRHS[nRHS][r];
 }
-
+*/
+/*
 double SparseSymmetricMatrixSolver::GetSolution( unsigned int r, unsigned int nRHS )
 {
 	r -= m_n1Offset;
@@ -83,7 +87,7 @@ double * SparseSymmetricMatrixSolver::GetSolutionVec( unsigned int nRHS )
 {
 	return & m_vSolutions[nRHS][0];
 }
-
+*/
 
 
 
@@ -141,10 +145,10 @@ unsigned int SparseSymmetricMatrixSolver::CountNonZeros(bool bLowerOnly)
 	for ( unsigned int i = 0; i < nCols; ++i ) {
 		if ( bLowerOnly ) {
 			Column::iterator cur(m_vColumns[i].begin()), end(m_vColumns[i].end());
-			while ( cur != end ) {
-				Entry & e = *cur;  ++cur;
-				if ( e.r <= i )
+			while ( cur != end ) { 
+				if ( cur->r <= i )
 					nCount++;
+				++cur;	
 			}
 		} else 
 			nCount += (unsigned int)m_vColumns[i].size();
@@ -202,10 +206,11 @@ bool SparseSymmetricMatrixSolver::Solve_UMFPACK()
 
 		Column::iterator cur(col.begin()), end(col.end());
 		while ( cur != end ) {
-			Entry & e = *cur;  ++cur;
-			pTaucsMatrix->rowind[nCur] = e.r;
-			pTaucsMatrix->values.d[nCur] = e.value;
+			// Entry & e = *cur;  
+			pTaucsMatrix->rowind[nCur] = cur->r;
+			pTaucsMatrix->values.d[nCur] = cur->value;
 			++nCur;
+			++cur;
 		}
 	}
 	pTaucsMatrix->colptr[m_nCols] = nCur;	
@@ -262,13 +267,14 @@ bool SparseSymmetricMatrixSolver::Solve_TAUCS()
 
 		Column::iterator cur(col.begin()), end(col.end());
 		while ( cur != end ) {
-			Entry & e = *cur;  ++cur;
+			//Entry & e = *cur;  ++cur;
 
-			if ( !bUseLowerTriangular || e.r <= c ) {
-				pTaucsMatrix->rowind[nCur] = e.r;
-				pTaucsMatrix->values.d[nCur] = e.value;
+			if ( !bUseLowerTriangular || cur->r <= c ) {
+				pTaucsMatrix->rowind[nCur] = cur->r;
+				pTaucsMatrix->values.d[nCur] = cur->value;
 				++nCur;
 			}
+			++cur;
 		}
 	}
 	pTaucsMatrix->colptr[m_nCols] = nCur;	
@@ -338,11 +344,20 @@ bool SparseSymmetricMatrixSolver::Solve_TAUCS()
 
 
 	if ( m_nSolverMaxIterations != 0 ) {
+	#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#else
+		sprintf(buf, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#endif
 		vOptionStrings.push_back(buf);
+		
 	}
 	if ( m_fSolverConvergeTolerance != 0 ) {
+	#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#else
+		sprintf(buf, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#endif
 		vOptionStrings.push_back(buf);
 	}
 
@@ -423,13 +438,14 @@ bool SparseSymmetricMatrixSolver::Factorize_TAUCS()
 
 		Column::iterator cur(col.begin()), end(col.end());
 		while ( cur != end ) {
-			Entry & e = *cur;  ++cur;
+			// Entry & e = *cur;  
 
-			if ( !bUseLowerTriangular || e.r <= c ) {
-				pTaucsMatrix->rowind[nCur] = e.r;
-				pTaucsMatrix->values.d[nCur] = e.value;
+			if ( !bUseLowerTriangular || cur->r <= c ) {
+				pTaucsMatrix->rowind[nCur] = cur->r;
+				pTaucsMatrix->values.d[nCur] = cur->value;
 				++nCur;
 			}
+			++cur;
 		}
 	}
 	pTaucsMatrix->colptr[m_nCols] = nCur;	
@@ -498,11 +514,19 @@ bool SparseSymmetricMatrixSolver::Factorize_TAUCS()
 
 
 	if ( m_nSolverMaxIterations != 0 ) {
+	#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#else
+		sprintf(buf, "taucs.solve.maxits=%d", m_nSolverMaxIterations);
+		#endif
 		m_vOptionStrings.push_back(buf);
 	}
 	if ( m_fSolverConvergeTolerance != 0 ) {
+		#ifdef WIN32
 		sprintf_s(buf, 1024, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#else
+		sprintf(buf, "taucs.solve.convergetol=%e",m_fSolverConvergeTolerance);
+		#endif
 		m_vOptionStrings.push_back(buf);
 	}
 
