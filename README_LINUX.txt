@@ -27,13 +27,19 @@ To compile Lapack, again append the -cpp option, this time in LAPACK3.1.1/SRC/Ma
 Lib is stored as libUMFPACK.a
 
 - taucs
-https://gforge.inria.fr/frs/download.php/24628/taucs_full.tgz
-l 64; OSTYPE=linux64 configure
-src/taucs.h: #define TAUCS_BLAS_UNDERSCORE
+the version of taucs included in the zip has no makefile for 64-Bit Linux, so we use a newer version
+in packages:
+> rm -r taucs
+> wget https://gforge.inria.fr/frs/download.php/24628/taucs_full.tgz
+> tar xvzf taucs_full.tgz
+
+The configure script has still problems to detect the 64 bit so a hack is to add this information manually:
+l 64; OSTYPE=linux64
+in src/taucs.h add #define TAUCS_BLAS_UNDERSCORE at the beginning of the file
 
 
 - gsi:
-in GSI: 
+finally in GSI: 
 > mkdir build && cd build && cmake .. && make
 
 
