@@ -11,8 +11,8 @@ include_directories(Base)
 include_directories(packages/include)
 include_directories(SparseMatrixSolver)
 
-include_directories(packages/taucs/src)
-include_directories(packages/taucs/build/linux64)
+include_directories(packages/taucs_full/src)
+include_directories(packages/taucs_full/build/linux64)
 include_directories(packages/UMFPACK/Include)
 
 include_directories(packages/UFconfig)

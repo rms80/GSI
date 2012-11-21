@@ -332,7 +332,7 @@ clean:
 	rm -f *.o
 
 .f.o: 
-	$(FORTRAN) $(OPTS) -c $< -o $@
+	$(FORTRAN) $(OPTS) -c $< -o $@ -cpp
 
 slaruv.o: slaruv.f ; $(FORTRAN) $(NOOPT) -c $< -o $@
 dlaruv.o: dlaruv.f ; $(FORTRAN) $(NOOPT) -c $< -o $@
