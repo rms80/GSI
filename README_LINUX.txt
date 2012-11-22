@@ -19,7 +19,7 @@ in LAPACK3.1.1/make.inc:
 
 To finally compile the library, execute make in LAPACK3.1.1/BLAS/SRC. The library will be stored in
 LAPACK3.1.1 as blas_Linux, rename this to libblasLinux.a.
-
+  
 To compile Lapack, again append the -cpp option, this time in LAPACK3.1.1/SRC/Makefile in line 335 and make it. The lib is again stored on level above, rename it to  liblapackLinux.a.
 
 - Compiling UMFPACK

@@ -1,0 +1,4 @@
+38c38
+< LIBC   = -lm
+---
+> LIBC   = -lm -lgfortran
