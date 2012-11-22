@@ -10,6 +10,6 @@ patch taucs_full/configure < taucs_patches/configure_diff.txt # setting OSTYPE=l
 patch taucs_full/src/taucs.h < taucs_patches/taucs_h_diff.txt # adding add #define TAUCS_BLAS_UNDERSCORE
 patch taucs_full/config/linux64.mk < taucs_patches/linux64.diff # add -lgfortran
 
-cd taucs_full && ./configure && make
+cd taucs_full && ./configure && make -j
 
 

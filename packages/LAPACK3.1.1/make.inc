@@ -10,7 +10,7 @@ SHELL = /bin/sh
 #
 #  The machine (platform) identifier to append to the library names
 #
-PLAT = _Linux #_WIN32
+PLAT = _WIN32
 #  
 #  Modify the FORTRAN and OPTS definitions to refer to the
 #  compiler and desired compiler options for your machine.  NOOPT
