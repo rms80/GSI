@@ -2,12 +2,12 @@
 
 
 # create libamd.a
-cd packages/AMD/Lib/ && make -j && cd -
+cd packages/AMD/Lib/ && make && cd -
 
 #create BLAS and LAPACK
 cd packages/LAPACK3.1.1/BLAS/SRC && make -f Makefile_linux && cd ../../ 
 cd SRC
-make -f Makefile_linux -j
+make -f Makefile_linux
 cd ..
 
 mv blas_WIN32.a libblasLinux.a
@@ -18,7 +18,7 @@ cd .. # back in GSI/packages
 
 # UMFPACK
 cd UMFPACK && mkdir build 
-cd build && cmake .. && make -j && cd ../../
+cd build && cmake .. && make && cd ../../
 
 
 # install new version of taucs
@@ -33,7 +33,7 @@ fi
 cd ..
 
 mkdir build
-cd build && cmake .. && make -j3
+cd build && cmake .. && make
 
 
 
